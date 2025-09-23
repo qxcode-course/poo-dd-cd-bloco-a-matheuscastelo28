@@ -47,6 +47,3 @@ def main(): #2
             toalha.dry(amount) 
         else: 
            print("comando invalido")
-
-
-
