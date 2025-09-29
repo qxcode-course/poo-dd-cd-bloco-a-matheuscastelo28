@@ -18,7 +18,6 @@ class Towel:    #this
 
     def getMaxWetness(self) -> int:
         if self.size == "P":
-            
             return 10
         if self.size == "M":
             return 20
@@ -27,23 +26,30 @@ class Towel:    #this
         return 0
 
     def __str__(self) -> str: # toString
-        return f"Cor:{self.color}, Tam:{self.size}, Umidade:{self.wetness}"
+        return f"Cor: {self.color}, Tamanho: {self.size}, Umidade: {self.wetness}"
 
 def main(): #2
-   toalha =  Towel("", "") # 3 objeto manipulado
-   while True: #4 loop infinito
+    toalha =  Towel("", "") # 3 objeto manipulado
+    while True: #4 loop infinito
         line: str = input() # 5 entrada da linha
-        args: list[str] = line.split("  ") # 6 lista de palavra
+        args: list[str] = line.split(" ") # 6 lista de palavra
+        
+        print("$"+line)
         if args[0] == "end": # fim da execução 
             break 
-        elif args[0] == "new": # color 
+        elif args[0] == "criar": # color 
             color = args[1]
             size = args[2]
             toalha =  Towel(color, size)
-        elif args[0] == "show":
+        elif args[0] == "mostrar":
             print(toalha)
-        elif args[0] == "dry":
+        elif args[0] == "enxugar":
             amount: int = int(args[1])
             toalha.dry(amount) 
+        elif args[0]== "seca":
+            print("sim" if toalha.isDry() else "nao")
+        elif args[0] == "torcer":
+            toalha.wringOut()
         else: 
-           print("comando invalido")
+           print("fail: comando invalido")
+main()

@@ -2,8 +2,13 @@
     "patches": [
         {
             "label": "2025-09-23_20-00-07",
-            "content": "class Animal:\n    def __init__(self, species: str, sound: str,): # constructor\n      self.species: str = species\n      self.sound: str = sound\n      self.age: int = 0\n     \n    def __str__(self):\n       returnf\"{self.species}:{self}\"",
+            "content": "@@ -202,17 +202,16 @@\n   return\n- \n f%22%7Bself.\n@@ -228,290 +228,6 @@\n self\n-.age%7D:%7Bself.sound%7D%22%0A    %0Adef main():%0A   animal: Animal = Animal(%22%22, %22%22)%0A   while True:%0A      line = input()%0A      print(%22$%22 + line)%0A      args = line.split(%22 %22)%0A%0A      if args%5B0%5D == %22end%22:%0A         break%0A      elif args%5B0%5D == %22init%22:%0A         species = args%5B1%5D%0A         sound = args %5B2%5D\n+%7D%22\n",
             "lines": "8"
+        },
+        {
+            "label": "2025-09-29_16-10-02",
+            "content": "class Animal:\n    def __init__(self, species: str, sound: str,): # constructor\n      self.species: str = species\n      self.sound: str = sound\n      self.age: int = 0\n     \n    def __str__(self):\n       return f\"{self.species}:{self.age}:{self.sound}\"\n    \ndef main():\n   animal: Animal = Animal(\"\", \"\")\n   while True:\n      line = input()\n      print(\"$\" + line)\n      args = line.split(\" \")\n\n      if args[0] == \"end\":\n         break\n      elif args[0] == \"init\":\n         species = args[1]\n         sound = args [2]",
+            "lines": "21"
         }
     ]
 }
