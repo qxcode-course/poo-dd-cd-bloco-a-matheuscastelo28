@@ -3,11 +3,15 @@ class Carro:
         self.passageiro = 0
         self.gas = 0
         self.km = 0
-        self.passMax = 2
+        self.passageiroMax = 2
         self.gasMax = 100
+ 
+ 
+    def __str__(self):
+        return f"pass: {self.passageiro}, gas: {self.gas}, km: {self.km}"
 
     def enter(self):
-        if self.passageiro < self.passMax:
+        if self.passageiro < self.passageiroMax:
             self.passageiro +=1 
         else:
             print("fail: limite de pessoas atingido")
@@ -19,36 +23,36 @@ class Carro:
         else:
             print("fail: nao ha ninguem no carro") 
     
-    def fuel(self, qnt:int):
-        self.gas += qnt
+    def fuel(self, amount: int):
+        self.gas += amount
         if self.gas > self.gasMax:
             self.gas = self.gasMax
             
-    def drive(self, dist : int):
+    def drive(self, distance : int):
         if self.passageiro == 0:
             print("fail: nao ha ninguem no carro")
             return
         if self.gas == 0:
             print("fail: tanque vazio")
             return
-        if dist <= self.gas:
-            self.gas+= dist
-            self.km-= dist
+        
+        if distance <= self.gas:
+            self.gas -= distance
+            self.km += distance
         else :
             print(f"fail: tanque vazio apos andar {self.gas} km")
             self.km += self.gas
             self.gas = 0
         
-        
-    def __str__(self):
-        return f"pass: {self.passageiros}, gas: {self.gas}, km: {self.km}"
+
     
 def main():
       carro = Carro()
       while True:
         line : str = input()
-        args:list[str] = line.split()
         print("$"+line)
+        args:list[str] = line.split()
+        
 
         if args[0] == "end":
              break 
@@ -57,11 +61,15 @@ def main():
 
         elif args[0] == "enter":
              carro.enter()
-             
         elif args[0] == "leave":
             carro.leave()
         elif args[0] == "fuel":
-            carro
+            carro.fuel(int(args[1]))
+        elif args[0] == "drive":
+            carro.drive(int(args[1]))
+        
+        
+main()
       
 
             

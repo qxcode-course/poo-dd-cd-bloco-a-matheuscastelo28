@@ -10,6 +10,8 @@ expanded:
 - campanha-principal
 - bloco_b-primeiras-classes
 tasks:
+  animal: '{rate:100}'
+  carro: '{rate:100}'
   enxugar: '{rate:100}'
 flags:
   quests: 0
@@ -17,4 +19,4 @@ flags:
   tasks: 1
   graph: 1
   xray: 0
-index: enxugar
+index: calculadora
